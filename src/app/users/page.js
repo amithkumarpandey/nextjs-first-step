@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import React from 'react'
+import { API_BASE_URL } from '../../../utils/basePath';
 
 const fetchUsers = async () => {
-    const users = await fetch("http://localhost:3000/api/user");
+    const users = await fetch(`${API_BASE_URL}/api/user`);
     const usersData = await users.json();
     return usersData;
 }

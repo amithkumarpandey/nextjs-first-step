@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import '../../../style.css';
 import { useRouter } from 'next/navigation';
+import { API_BASE_URL } from '../../../../../utils/basePath';
 
 function UpdateProduct(props) {
 
@@ -21,7 +22,7 @@ function UpdateProduct(props) {
     try {
       const productId = props.params.productId;
       console.log("data", productId);
-      let data = await fetch(`http://localhost:3000/api/product/${productId}`)
+      let data = await fetch(`${API_BASE_URL}/api/product/${productId}`)
       data = await data.json();
       const { name, price, company, color, category } = data.data;
       setName(name);
@@ -40,7 +41,7 @@ function UpdateProduct(props) {
   const handleSubmit = async () => {
     const productId = props.params.productId;
 
-    let data = await fetch(`http://localhost:3000/api/product/${productId}`, {
+    let data = await fetch(`${API_BASE_URL}/api/product/${productId}`, {
       method: "PUT",
       body: JSON.stringify({ name, price, company, color, category })
     })

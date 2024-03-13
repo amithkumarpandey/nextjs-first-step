@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
+import { API_BASE_URL } from '../../../../utils/basePath';
 
 function ListProduct() {
 
@@ -9,7 +10,7 @@ function ListProduct() {
 
     const listProduct = async () => {
         try {
-            let data = await fetch("http://localhost:3000/api/product");
+            let data = await fetch(`${API_BASE_URL}/api/product`);
             data = await data.json();
             setProductData(data.data);
         } catch (error) {
@@ -23,7 +24,7 @@ function ListProduct() {
 
     const handleDelete = async (productId) => {
         try {
-            let result = await fetch(`http://localhost:3000/api/product/${productId}`, {
+            let result = await fetch(`${API_BASE_URL}/api/product/${productId}`, {
                 method: "delete"
             });
             result = await result.json();

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import '../style.css';
+import { API_BASE_URL } from "../../../utils/basePath";
 
 export default function AddUser() {
 
@@ -11,7 +12,7 @@ export default function AddUser() {
 
     const handleSubmit = async () => {
         try {
-            const userDetails = await fetch("http://localhost:3000/api/user", {
+            const userDetails = await fetch(`${API_BASE_URL}/api/user`, {
                 method: "POST",
                 body: JSON.stringify({ name, email, age })
             })

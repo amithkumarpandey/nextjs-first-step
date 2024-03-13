@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import './../../style.css';
+import { API_BASE_URL } from '../../../../utils/basePath';
 
 const Product = () => {
 
@@ -12,7 +13,7 @@ const Product = () => {
     const [category, setCategory] = useState();
 
     const handleSubmit = async () => {
-        let data = await fetch("http://localhost:3000/api/product", {
+        let data = await fetch(`${API_BASE_URL}/api/product`, {
             method: "POST",
             body: JSON.stringify({ name, price, company, color, category })
         })

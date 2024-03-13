@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState } from 'react'
 import '../../../style.css';
+import { API_BASE_URL } from '../../../../../utils/basePath';
 
 const fetchUser = async (userId) => {
-  const users = await fetch(`http://localhost:3000/api/user/${userId}`);
+  const users = await fetch(`${API_BASE_URL}/api/user/${userId}`);
   const usersData = await users.json();
   return usersData;
 }
@@ -28,7 +29,7 @@ function UpdateUser({ params }) {
 
   const handleSubmit = async () => {
     try {
-        const userDetails = await fetch(`http://localhost:3000/api/user/${userId}`, {
+        const userDetails = await fetch(`${API_BASE_URL}/api/user/${userId}`, {
             method: "PUT",
             body: JSON.stringify({ name, email, age })
         })
