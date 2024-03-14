@@ -1,7 +1,8 @@
 import React from 'react'
+import { API_BASE_URL } from '../../../../utils/basePath';
 
 const fetchUser = async (userId) => {
-  const users = await fetch(`http://localhost:3000/api/user/${userId}`);
+  const users = await fetch(`${API_BASE_URL}/api/user/${userId}`);
   const usersData = await users.json();
   return usersData;
 }
