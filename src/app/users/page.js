@@ -8,9 +8,9 @@ const fetchUsers = async () => {
     return usersData;
 }
 
-async function Users() {
+function Users() {
 
-    const users = await fetchUsers();
+    const users = []//await fetchUsers();
 
   return (
     <>
@@ -19,8 +19,8 @@ async function Users() {
             users.map((item) => {
                 return <div key={item.id}>
                     <span>{ item.name }</span>
-                    {/* <span style={{ marginLeft: "15px" }}><Link href={`/users/${item.id}`}>View</Link></span>
-                    <span style={{ marginLeft: "15px" }}><Link href={`/users/${item.id}/update`}>Edit</Link></span> */}
+                    <span style={{ marginLeft: "15px" }}><Link href={`/users/${item.id}`}>View</Link></span>
+                    <span style={{ marginLeft: "15px" }}><Link href={`/users/${item.id}/update`}>Edit</Link></span>
                 </div>
             })
         }
